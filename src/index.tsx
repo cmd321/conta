@@ -1,8 +1,14 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
+import { mockServer } from 'mocks'
+
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+
+import 'assets/fonts/fonts.css'
+
+mockServer.start()
 
 ReactDOM.render(
   <React.StrictMode>
