@@ -7,6 +7,7 @@ import {
 } from 'helpers/format'
 
 import Chart from 'components/Chart'
+import Skeleton from 'components/Skeleton'
 
 import {
   ChartColumn,
@@ -18,7 +19,7 @@ import {
 } from './styles'
 
 function Home(): JSX.Element {
-  const { statements } = useStatementsGroupedByDate()
+  const { statements, isLoading } = useStatementsGroupedByDate()
 
   const [date, setDate] = React.useState<string>()
   const [value, setValue] = React.useState<number>()
@@ -36,9 +37,12 @@ function Home(): JSX.Element {
       <ColumnsWrapper>
         <ChartColumn>
           <Title>Resumo dos extratos por dia</Title>
-          {statements && (
+          {isLoading || !statements ? (
+            <Skeleton height="250px" />
+          ) : (
             <Chart onMouseOver={handleOnMouseOver} data={statements} />
           )}
+
           {date && <DateTitle>{getDateSeparatedByBars(date)}</DateTitle>}
           {value && (
             <CurrencyText isValuePositive={value >= 0}>
