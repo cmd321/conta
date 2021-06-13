@@ -72,7 +72,15 @@ function Chart({ data, onMouseOver }: Props): JSX.Element {
                       value: d.amountEntered,
                     })
                 }}
-              />
+              >
+                <animate
+                  attributeName="height"
+                  from="0"
+                  to={scaleY(0) - scaleY(d.amountEntered)}
+                  dur="0.3s"
+                  fill="freeze"
+                />
+              </PositiveValueRect>
               <NegativeValueRect
                 data-testid={`negativeValueRect${d.id}`}
                 x={scaleX(d.date)}
@@ -87,7 +95,15 @@ function Chart({ data, onMouseOver }: Props): JSX.Element {
                       value: -d.amountOut,
                     })
                 }}
-              />
+              >
+                <animate
+                  attributeName="height"
+                  from="0"
+                  to={scaleY(-d.amountOut) - scaleY(0)}
+                  dur="0.3s"
+                  fill="freeze"
+                />
+              </NegativeValueRect>
             </React.Fragment>
           ))}
         </g>
