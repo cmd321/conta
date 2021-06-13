@@ -2,13 +2,22 @@ import * as React from 'react'
 
 import { Circle, Wrapper } from './styles'
 
-function Loader(): JSX.Element {
+export enum variants {
+  PRIMARY,
+  SECONDARY,
+}
+
+type Props = {
+  variant?: variants
+}
+
+function Loader({ variant = variants.SECONDARY }: Props): JSX.Element {
   return (
     <Wrapper data-testid="loader">
-      <Circle />
-      <Circle />
-      <Circle />
-      <Circle />
+      <Circle variant={variant} />
+      <Circle variant={variant} />
+      <Circle variant={variant} />
+      <Circle variant={variant} />
     </Wrapper>
   )
 }

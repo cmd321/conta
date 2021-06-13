@@ -1,5 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 
+import { variants } from './index'
+
 const ellipsis1 = keyframes`
   0% {
     transform: scale(0);
@@ -27,7 +29,7 @@ const ellipsis3 = keyframes`
   }
 `
 
-export const Circle = styled.div`
+export const Circle = styled.div<{ variant: variants }>`
   position: absolute;
 
   top: 17px;
@@ -35,7 +37,8 @@ export const Circle = styled.div`
   height: 9px;
 
   border-radius: 50%;
-  background: #fff;
+  background-color: ${({ variant, theme }) =>
+    variant === variants.PRIMARY ? theme.colors.primary : theme.colors.white};
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 `
 
