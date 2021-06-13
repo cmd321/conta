@@ -14,12 +14,12 @@ import { routes } from './consts'
 import PrivateRoute from './private'
 
 function AccountPages(): JSX.Element {
-  const { user } = useUser()
+  const { isLoading, user } = useUser()
 
   return (
     <>
       <Navbar />
-      {user && <Header user={user} />}
+      <Header isLoading={isLoading} user={user} />
       <Switch>
         <PrivateRoute component={Home} path={routes.home} exact />
         <PrivateRoute component={TransferPage} path={routes.transfer} />

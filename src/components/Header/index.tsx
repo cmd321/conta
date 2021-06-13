@@ -2,6 +2,8 @@ import * as React from 'react'
 
 import { formatNumberToBrCurrency } from 'helpers/format'
 
+import Skeleton from '../Skeleton'
+
 import {
   BalanceText,
   Column,
@@ -20,24 +22,49 @@ type User = {
 }
 
 type Props = {
-  user: User
+  isLoading: boolean
+  user: User | undefined
 }
 
-function Header({ user }: Props): JSX.Element {
+function Header({ isLoading, user }: Props): JSX.Element {
   return (
     <Wrapper>
       <Content>
         <Column>
-          <Text>
-            Bem-vindo <HighlightedText>{user.name}</HighlightedText>!
-          </Text>
-          <SubTitle>Saldo total</SubTitle>
-          <BalanceText>R$ {formatNumberToBrCurrency(user.balance)}</BalanceText>
+          {isLoading || !user ? (
+            <>
+              <Text>
+                <Skeleton height="22px" width="100px" />
+              </Text>
+              <SubTitle>
+                <Skeleton height="13px" width="80px" />
+              </SubTitle>
+              <BalanceText>
+                <Skeleton height="35px" width="250px" />
+              </BalanceText>
+            </>
+          ) : (
+            <>
+              <Text>
+                Bem-vindo <HighlightedText>{user.name}</HighlightedText>!
+              </Text>
+              <SubTitle>Saldo total</SubTitle>
+              <BalanceText>
+                R$ {formatNumberToBrCurrency(user.balance)}
+              </BalanceText>
+            </>
+          )}
         </Column>
         <Column>
-          <Text>
-            agência {user.agency} conta {user.account}
-          </Text>
+          {isLoading || !user ? (
+            <Text>
+              <Skeleton height="21px" width="250px" />
+            </Text>
+          ) : (
+            <Text>
+              agência {user.agency} conta {user.account}
+            </Text>
+          )}
         </Column>
       </Content>
     </Wrapper>
