@@ -6,10 +6,11 @@ import { ToastContainer } from 'react-toastify'
 import userEvent from '@testing-library/user-event'
 
 import theme from 'theme'
-import { handlers } from 'mocks/handlers'
+import { getHandlers } from 'mocks/handlers'
 
 import Login from './index'
 
+const handlers = getHandlers({ delay: 0 })
 const server = setupServer(...handlers)
 
 beforeAll(() => server.listen())

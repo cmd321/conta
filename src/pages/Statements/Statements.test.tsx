@@ -4,10 +4,11 @@ import { render, waitFor } from '@testing-library/react'
 import { setupServer } from 'msw/node'
 
 import theme from 'theme'
-import { handlers } from 'mocks/handlers'
+import { getHandlers } from 'mocks/handlers'
 
 import Statements from './index'
 
+const handlers = getHandlers({ delay: 0 })
 const server = setupServer(...handlers)
 
 beforeAll(() => server.listen())
@@ -22,5 +23,5 @@ test('render statements page', async () => {
 
   getByText('Extratos')
   const statements = await waitFor(() => getAllByText('Transferência'))
-  expect(statements).toHaveLength(60)
+  expect(statements).toHaveLength(10)
 })

@@ -4,7 +4,7 @@ import { data } from './data'
 
 const appData = data
 
-export const handlers = [
+export const getHandlers = ({ delay }: { delay: number }) => [
   rest.post(
     'http://localhost:9000/user/login',
     (req: any, res: any, ctx: any) => {
@@ -16,6 +16,7 @@ export const handlers = [
         body.password === user.password
       ) {
         return res(
+          ctx.delay(delay),
           ctx.status(202, 'Mocked status'),
           ctx.json({
             token: 'token_here',
@@ -23,6 +24,7 @@ export const handlers = [
         )
       }
       return res(
+        ctx.delay(delay),
         ctx.status(401, 'Mocked error'),
         ctx.json({
           error: { message: 'Credênciais inválidas.' },
@@ -31,15 +33,32 @@ export const handlers = [
     }
   ),
   rest.get('http://localhost:9000/user', (_: any, res: any, ctx: any) => {
-    return res(ctx.status(202, 'Mocked status'), ctx.json(appData.user))
+    return res(
+      ctx.delay(delay),
+      ctx.status(202, 'Mocked status'),
+      ctx.json(appData.user)
+    )
   }),
-  rest.get('http://localhost:9000/statements', (_: any, res: any, ctx: any) => {
-    return res(ctx.status(202, 'Mocked status'), ctx.json(appData.statements))
-  }),
+  rest.get(
+    'http://localhost:9000/statements',
+    (req: any, res: any, ctx: any) => {
+      const page = req.url.searchParams.get('page')
+
+      return res(
+        ctx.delay(delay),
+        ctx.status(202, 'Mocked status'),
+        ctx.json({
+          count: appData.statements.length,
+          rows: appData.statements.slice((page - 1) * 10, page * 10),
+        })
+      )
+    }
+  ),
   rest.get(
     'http://localhost:9000/statements/grouped-by-day',
     (_: any, res: any, ctx: any) => {
       return res(
+        ctx.delay(delay),
         ctx.status(202, 'Mocked status'),
         ctx.json(appData.statementsGroupedByDay)
       )
