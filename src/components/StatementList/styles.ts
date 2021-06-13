@@ -17,6 +17,13 @@ export const IconWrapper = styled.div`
   margin-right: 12px;
 `
 
+export const LoaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+
+  margin-top: 12px;
+`
+
 export const Row = styled.div`
   display: flex;
   justify-content: space-between;
@@ -56,7 +63,7 @@ export const ValueText = styled.p<{ positive: boolean }>`
 export const Wrapper = styled.div`
   width: 100%;
 
-  ${Row}:not(:last-child) {
+  & > div:not(:last-child) {
     margin-bottom: 8px;
   }
 `

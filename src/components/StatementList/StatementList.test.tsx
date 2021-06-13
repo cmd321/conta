@@ -29,7 +29,7 @@ const renderStatementList = (children: JSX.Element) =>
 
 test('render statement list', () => {
   const { getByText } = renderStatementList(
-    <StatementList data={dataWithPositiveValue} />
+    <StatementList fetchData={() => {}} hasMore data={dataWithPositiveValue} />
   )
 
   getByText('Transferência')
@@ -39,7 +39,7 @@ test('render statement list', () => {
 
 test('show correct color for positive value', () => {
   const { getByText } = renderStatementList(
-    <StatementList data={dataWithPositiveValue} />
+    <StatementList fetchData={() => {}} hasMore data={dataWithPositiveValue} />
   )
 
   expect(getByText('R$ 1.000,00')).toHaveStyle(`color: ${theme.colors.green};`)
@@ -47,7 +47,7 @@ test('show correct color for positive value', () => {
 
 test('show correct color for negative value', () => {
   const { getByText } = renderStatementList(
-    <StatementList data={dataWithNegativeValue} />
+    <StatementList fetchData={() => {}} hasMore data={dataWithNegativeValue} />
   )
 
   expect(getByText('R$ -1.000,00')).toHaveStyle(`color: ${theme.colors.red};`)
