@@ -7,6 +7,7 @@ export enum colors {
   grey5 = '#7A7A7A',
   grey6 = '#666666',
   grey7 = '#3E3E3E',
+  grey8 = '#E4E4E4',
   primary = '#EF3024',
   red = '#FA2215',
   white = '#FFFFFF',
