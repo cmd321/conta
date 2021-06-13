@@ -12,11 +12,11 @@ senha: password
 
 ## ✅ To-Dos
 - [ ] Animações para transição de página.
-- [ ] Animações de carregamento (_Skeleton screen loading_).
+- [x] Animações de carregamento (_Skeleton screen loading_).
 - [ ] Aumentar cobertura dos testes.
 - [ ] Adicionar feature para pagamentos de _qr code_ e código de barras.
 - [ ] Alterar fluxo de transferência para registrar todas informações necessárias para efetuar a mesma.
-- [ ] Adicionar _infinite scroll_ na listagem da página extrato.
+- [x] Adicionar _infinite scroll_ na listagem da página extrato.
 - [ ] Exibir mais informações relevantes na página inicial da conta.
 
 ## 🧾 Scripts
