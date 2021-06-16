@@ -11,6 +11,7 @@ senha: password
 `
 
 ## ✅ To-Dos
+- [ ] Adicionar feature para investimentos. - **EM PROGRESSO**
 - [ ] Animações para transição de página.
 - [x] Animações de carregamento (_Skeleton screen loading_).
 - [ ] Aumentar cobertura dos testes.
