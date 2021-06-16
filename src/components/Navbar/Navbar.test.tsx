@@ -22,6 +22,7 @@ test('render navbar', () => {
 
   getByText('Início')
   getByText('Transferência')
+  getByText('Investimentos')
   getByText('Extrato')
   getByText('Sair')
 })
@@ -31,6 +32,7 @@ test('anchor tags have the correct values ​​for the href attribute', () => {
 
   expect(getByText('Início')).toHaveAttribute('href', routes.home)
   expect(getByText('Transferência')).toHaveAttribute('href', routes.transfer)
+  expect(getByText('Investimentos')).toHaveAttribute('href', routes.investments)
   expect(getByText('Extrato')).toHaveAttribute('href', routes.statement)
 })
 

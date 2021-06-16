@@ -41,6 +41,9 @@ function Navbar(): JSX.Element {
             <Link to={routes.transfer}>Transferência</Link>
           </Item>
           <Item>
+            <Link to={routes.investments}>Investimentos</Link>
+          </Item>
+          <Item>
             <Link to={routes.statement}>Extrato</Link>
           </Item>
           <Item>
