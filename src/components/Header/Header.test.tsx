@@ -17,7 +17,7 @@ const renderHeader = (children: JSX.Element) =>
   render(<ThemeProvider theme={theme}>{children}</ThemeProvider>)
 
 test('render header with user data', () => {
-  const { getByText } = renderHeader(<Header user={user} />)
+  const { getByText } = renderHeader(<Header isLoading={false} user={user} />)
 
   getByText(user.name)
   getByText('R$ 100,00')
