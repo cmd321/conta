@@ -1,7 +1,8 @@
 export enum routes {
   account = '/conta',
-  statement = '/conta/extrato',
   home = '/conta/',
+  investments = '/conta/investimentos',
   login = '/entrar',
+  statement = '/conta/extrato',
   transfer = '/conta/transferencia',
 }
