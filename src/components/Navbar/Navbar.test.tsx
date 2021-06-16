@@ -21,7 +21,7 @@ test('render navbar', () => {
   const { getByText } = renderNavbar(<Navbar />)
 
   getByText('Início')
-  getByText('Fazer transferência')
+  getByText('Transferência')
   getByText('Extrato')
   getByText('Sair')
 })
@@ -30,10 +30,7 @@ test('anchor tags have the correct values ​​for the href attribute', () => {
   const { getByText } = renderNavbar(<Navbar />)
 
   expect(getByText('Início')).toHaveAttribute('href', routes.home)
-  expect(getByText('Fazer transferência')).toHaveAttribute(
-    'href',
-    routes.transfer
-  )
+  expect(getByText('Transferência')).toHaveAttribute('href', routes.transfer)
   expect(getByText('Extrato')).toHaveAttribute('href', routes.statement)
 })
 

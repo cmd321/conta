@@ -38,7 +38,7 @@ function Navbar(): JSX.Element {
             </Link>
           </Item>
           <Item>
-            <Link to={routes.transfer}>Fazer transferência</Link>
+            <Link to={routes.transfer}>Transferência</Link>
           </Item>
           <Item>
             <Link to={routes.statement}>Extrato</Link>
