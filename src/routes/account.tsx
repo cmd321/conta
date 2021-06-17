@@ -7,6 +7,7 @@ import Navbar from 'components/Navbar'
 import Header from 'components/Header'
 
 import Home from 'pages/Home'
+import InvestmentsPage from 'pages/Investments'
 import StatementsPage from 'pages/Statements'
 import TransferPage from 'pages/Transfer'
 
@@ -22,6 +23,7 @@ function AccountPages(): JSX.Element {
       <Header isLoading={isLoading} user={user} />
       <Switch>
         <PrivateRoute component={Home} path={routes.home} exact />
+        <PrivateRoute component={InvestmentsPage} path={routes.investments} />
         <PrivateRoute component={TransferPage} path={routes.transfer} />
         <PrivateRoute component={StatementsPage} path={routes.statement} />
 
